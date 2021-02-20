@@ -1,6 +1,6 @@
 {
   "name": "wasm-bytecode-utils",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "wasm",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
