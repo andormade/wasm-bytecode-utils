@@ -1,3 +1,6 @@
+/**
+ * WebAssembly instuction set
+ */
 export enum Instruction {
 	/** Unreachable */
 	UNREACHABLE = 0x00,
@@ -39,100 +42,161 @@ export enum Instruction {
 	F32_CONST = 0x43,
 	/** float64 constant */
 	F64_CONST = 0x44,
-	/** Integer Equality */
+
+	/**
+	 * Equality.
+	 * Tests whether the operands are equal.
+	 * Type signature: (param i32 i32) (result i32)
+	 */
 	I32_EQ = 0x46,
-	/**  Integer Less Than, Signed */
+
+	/**
+	 * Inequality.
+	 * Tests whether the operands are not equal.
+	 * Type signature: (param i32 i32) (result i32)
+	 */
+	I32_NE = 0x47,
+
+	/**
+	 * Less than (signed).
+	 * Tests whether the first operand is less than the second operand.
+	 * Type signature: (param i32 i32) (result i32)
+	 */
 	I32_LT_S = 0x48,
-	/** Integer Less Than or Equal To, Signed */
+
+	/**
+	 * Less than (unsigned).
+	 * Tests whether the first operand is less than the second operand.
+	 * Type signature: (param i32 i32) (result i32)
+	 */
+	I32_LT_U = 0x49,
+
+	I32_GT_S = 0x4a,
+
+	I32_GT_U = 0x4b,
+
+	/**
+	 * Less than or equal to (signed).
+	 * Tests whether the first operand is less than or equal to the second operand.
+	 * Type signature: (param i32 i32) (result i32)
+	 */
 	I32_LE_S = 0x4c,
-	/** Integer Greater Than or Equal To, Signed */
+
+	/**
+	 * Less than or equal to (unsigned).
+	 * Tests whether the first operand is less than or equal to the second operand.
+	 * Type signature: (param i32 i32) (result i32)
+	 */
+	I32_LE_U = 0x4d,
+
+	/** Greater than or equal to (signed)
+	 *
+	 *
+	 */
 	I32_GE_S = 0x4e,
 	/** Integer Greater Than or Equal To, Unsigned */
 	I32_GE_U = 0x4f,
+
 	/**
-	 * 32 bit integer add
+	 * Aadd.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_ADD = 0x6a,
+
 	/**
-	 * 32 bit integer substract
+	 * Substract.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_SUB = 0x6b,
+
 	/**
-	 * 32 bit integer multiply
+	 * Multiply.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_MUL = 0x6c,
+
 	/**
-	 * 32 bit signed integer divide
+	 * Divide (signed).
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_DIV_S = 0x6d,
+
 	/**
-	 * 32 bit unsigned integer divide
+	 * Divide (unsigned).
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_DIV_U = 0x6e,
+
 	/**
-	 * 32 bit signed integer remainder.
+	 * Remainder.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_REM_S = 0x6f,
+
 	/**
-	 * 32 bit integer bitwise and.
+	 * Bitwise and.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_AND = 0x71,
+
 	/**
-	 * 32 bit integer bitwise or.
+	 * Bitwise or.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_OR = 0x72,
+
 	/**
-	 * 32 bit integer bitwise exclusive or.
+	 * Exclusive or.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_XOR = 0x73,
+
 	/**
-	 * 32 bit integer shift left.
+	 * Shift left.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_SHL = 0x74,
+
 	/**
-	 * 32 bit signed integer shift right.
+	 * Shift right (signed).
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_SHR_S = 0x75,
+
 	/**
-	 * 32 bit unsigned integer shift right.
+	 * Shift right (unsigned).
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_SHR_U = 0x76,
+
 	/**
-	 * 32 bit integer rotate left.
+	 * Rotate left.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_ROTL = 0x77,
+
 	/**
-	 * 32 bit integer rotate right.
+	 * Rotate right.
 	 * Type signature: (param i32 i32) (result i32)
 	 */
 	I32_ROTR = 0x78,
+
 	/**
-	 * 32 bit integer count leading zeros.
+	 * Count leading zeros.
 	 * It returns the number of leading zeros in its operand.
 	 * Type signature: (param i32) (result i32)
 	 */
 	I32_CLZ = 0x67,
+
 	/**
-	 * 32 bit integer count trailing zeros.
+	 * Count trailing zeros.
 	 * It returns the number of trailing zeros in its operand.
 	 * Type signature: (param i32) (result i32)
 	 */
 	I32_CTZ = 0x68,
+
 	/**
-	 * 32 bit integer population count.
+	 * Population count.
 	 * It returns the number of 1-bits in its operand.
 	 * Type signature: (param i32) (result i32)
 	 */
